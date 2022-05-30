@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+    
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=5.0;">
+     <title>Відпустки</title>
+     <link href="Page4.css" rel="stylesheet" type="text/css">
+     <link rel="icon" href="img/logo.png" type="image/icon type">  
+     <link rel="stylesheet" href=
+     "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+        
+    </head>
+    
+        <body>
+            
+             <div id="loader">  
+             </div>
+            
+        <div class="container">
+            <header>
+                <a href="index.html">
+                    <img src="img/logo.png" class="Logo" alt="Логотип ДПС"></a>
+            <h1>Головне управління ДПС у Львівській  області<br>Управління персоналу</h1>
+        <nav> 
+        <ul>
+        <li class="nav_option"><a href="index1.html">Вступ та проходження державної служби</a></li>
+        <li class="nav_option"><a href="index2.html">Ключові показники <br>та оцінювання</a></li>
+        <li class="nav_option"><a href="index3.html">Підвищення<br> кваліфікаціїї</a></li>
+        <li class="nav_option"><a href="index4.html" class="active">Відпустки</a></li>
+        </ul>
+        </nav>
+        </header> 
+            
+        <script>
+ 
+         var header = document.getElementById("myDIV");
+         var btns = header.getElementsByClassName("btn");
+         for (var i = 0; i < btns.length; i++) {
+         btns[i].addEventListener("click", function() {
+         var current = document.getElementsByClassName("active");
+         current[0].className = current[0].className.replace(" active", "");
+         this.className += " active";
+      });
+   }
+     </script>
+            
+        <aside class="sidebar">
+        <div class="law">
+        <h3>Поточне законодавство</h3> 
+            <ul>
+        <li><a href="https://zakon.rada.gov.ua/laws/show/889-19#Text" target="_blank">Закон України "Про державну службу"</a></li>
+        <li><a href="https://zakon.rada.gov.ua/laws/show/504/96-%D0%B2%D1%80#Text" target="_blank">Закон України "Про відпустки"</a></li>
+        <li><a href="https://zakon.rada.gov.ua/laws/show/1700-18#Text" target="_blank">Закон України "Про запобігання<br> корупції"</a></li>
+        <li><a href="https://zakon.rada.gov.ua/laws/show/322-08#Text" target="_blank">Кодекс Законів про працю України</a></li>
+        <li><a href="https://zakon.rada.gov.ua/laws/show/z1203-16#Text" target="_blank">Правила етичної поведінки державного службовця</a>
+            </ul>
+            </div> 
+        <div class="calendar_block">
+            <div class="look-calendar">
+                <table id="calendar">
+            <thead>
+            <tr>
+            <td><b>‹</b>
+            <td colspan="5">
+            <td><b>›</b>
+            <tr class="dn"><td>Пн</td><td>Вт</td><td>Ср</td><td>Чт</td><td>Пт</td><td>Сб</td><td>Нд</td></tr></td>  
+            </thead>
+            <tbody>
+                 <tr>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td>1</td>
+				</tr>
+
+				<tr>
+				<td>2</td>
+				<td>3</td>
+				<td>4</td>
+				<td>5</td>
+				<td>6</td>
+				<td>7</td>
+				<td>8</td>
+				</tr>
+
+				<tr>
+				<td>9</td>
+				<td>10</td>
+				<td>11</td>
+				<td>12</td>
+				<td>13</td>
+				<td>14</td>
+				<td>15</td>
+				</tr>
+
+				<tr>
+				<td>16</td>
+				<td>17</td>
+				<td>18</td>
+				<td>19</td>
+				<td>20</td>
+				<td>21</td>
+				<td>22</td>
+				</tr>
+
+				<tr>
+				<td>23</td>
+				<td>24</td>
+				<td>25</td>
+				<td>26</td>
+				<td>27</td>
+				<td>28</td>
+				<td>29</td>
+				</tr>
+      
+                <tr>
+                <td>30</td>
+				<td>31</td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+                </tr>
+        </tbody>
+        </table>
+        </div>
+        </div>
+        <script>
+             function calendar(id, year, month) {
+    var Dlast = new Date(year, month + 1, 0).getDate(),
+      D = new Date(year, month, Dlast),
+      DNlast = new Date(D.getFullYear(), D.getMonth(), Dlast).getDay(),
+      DNfirst = new Date(D.getFullYear(), D.getMonth(), 1).getDay(),
+      calendar = '<tr>',
+      month = ["Січень", "Лютий", "Березень", "Квітень", "Травень", "Червень", "Липень", "Серпень", "Вересень", "Жовтень", "Листопад", "Грудень"];
+    if (DNfirst != 0) {
+      for (var i = 1; i < DNfirst; i++) calendar += '<td>';
+    } else {
+       for (var i = 0; i < 6; i++) calendar += '<td>';
+    }
+    for (var i = 1; i <= Dlast; i++) {
+       if (i == new Date().getDate() && D.getFullYear() == new Date().getFullYear() && D.getMonth() == new Date().getMonth()) {
+        calendar += '<td class="today">' + i;
+       } else {
+         calendar += '<td>' + i;
+       }
+       if (new Date(D.getFullYear(), D.getMonth(), i).getDay() == 0) {
+         calendar += '<tr>';
+       }
+    }
+    for (var i = DNlast; i < 7; i++) calendar += '<td> ';
+    document.querySelector('#' + id + ' tbody').innerHTML = calendar;
+    document.querySelector('#' + id + ' thead td:nth-child(2)').innerHTML = month[D.getMonth()] + ' ' + D.getFullYear();
+    document.querySelector('#' + id + ' thead td:nth-child(2)').dataset.month = D.getMonth();
+    document.querySelector('#' + id + ' thead td:nth-child(2)').dataset.year = D.getFullYear();
+    if (document.querySelectorAll('#' + id + ' tbody tr').length < 6) { 
+        
+    document.querySelector('#' + id + ' tbody').innerHTML += '<tr><td> <td> <td> <td> <td> <td> <td> ';
+    }
+  }
+  calendar("calendar", new Date().getFullYear(), new Date().getMonth());
+        // переключатель минус месяц
+  document.querySelector('#calendar thead tr:nth-child(1) td:nth-child(1)').onclick = function() {
+    calendar("calendar", document.querySelector('#calendar thead td:nth-child(2)').dataset.year, parseFloat(document.querySelector('#calendar thead td:nth-child(2)').dataset.month) - 1);
+  }
+         
+  document.querySelector('#calendar thead tr:nth-child(1) td:nth-child(3)').onclick = function() {
+    calendar("calendar", document.querySelector('#calendar thead td:nth-child(2)').dataset.year, parseFloat(document.querySelector('#calendar thead td:nth-child(2)').dataset.month) + 1);
+  }
+        </script>
+       
+        <div class="law">
+            <div class="qr_frame">
+                <a  href="https://www.facebook.com/profile.php?id=100072744106926" target="_blank"><img class="qr" src="img/qr-code.png" alt="QR код-посилання"></a>
+                <p>Кадри інформують</p> <img class="hand" src="img/hand.png" alt="Курсор"> 
+        </div>
+        </div>
+     
+        <div class="useful">
+         <h3>Корисні посилання</h3>
+          <h5>ДПС у соц. мережах</h5> 
+          <div class="social"> 
+          <a href="https://www.facebook.com/TaxUkraine" class="fa fa-facebook" target="_blank"></a>
+          <a href="https://www.youtube.com/c/TaxUkraine" class="fa fa-youtube" target="_blank"></a>
+          <a href="https://t.me/tax_gov_ua" class="fa fa-telegram" target="_blank"> </a>
+        </div>
+            <ul>
+                <li><a href="https://tax.gov.ua/" target="_blank" class="main_site_link">Сайт ДПС  України</a>
+                </li>
+                <li><a href="https://nads.gov.ua/" target="_blank" class="main_site_link">Сайт НАДС</a></li>
+                <li><a href="https://rds.mova.gov.ua/certificates/list/" target="_blank" class="main_site_link">Mova.gov.ua</a></li>
+            </ul>
+        </div> 
+    </aside>
+      
+    <main class="main_content">
+          <h1 class="main_header">Відпустки</h1>
+         <div class="main-container">
+            <div class="Examples">
+    <p>Заява щодо щорічної основної відпустки з виплатою допомоги</p>    
+  <div class="Blank_spoiler">
+    <div>
+    <input type="checkbox" id="spoiler1" class="spoiler">
+     <label for="spoiler1" class="spoiler_label">Зразок</label>
+      <div class="spoiler_content">
+      <a href="#img1">
+            <img src="img/%D0%92%D1%96%D0%B4%D0%BF%D1%83%D1%81%D1%82%D0%BA%D0%B01.png" id="blank1">
+          </a>
+
+          <a href="#"  class="lightbox" id="img1">
+          <span id="fullscreen" style="background-image: url(img/%D0%92%D1%96%D0%B4%D0%BF%D1%83%D1%81%D1%82%D0%BA%D0%B01.png)"></span>
+          </a>  
+           
+      <a href="path_to_file" download="proposed_file_name" id="word_file"><img src="img/file_icon.png" id="file-icon"> </a>   
+        </div>
+            </div> 
+                </div>
+         
+     <p>Заява щодо щорічної додаткової відпустки</p>    
+  <div class="Blank_spoiler">
+  <div>
+    <input type="checkbox" id="spoiler2" class="spoiler">
+     <label for="spoiler2" class="spoiler_label">Зразок</label>
+      <div class="spoiler_content">
+          <a href="#img2">
+            <img src="img/%D0%92%D1%96%D0%B4%D0%BF%D1%83%D1%81%D1%82%D0%BA%D0%B02.png" id="blank2">
+          </a>
+          <a href="#" class="lightbox" id="img2">
+          <span id="fullscreen" style="background-image: url(img/%D0%92%D1%96%D0%B4%D0%BF%D1%83%D1%81%D1%82%D0%BA%D0%B02.png)"></span>
+          </a>
+    <a href="path_to_file" download="proposed_file_name" id="word_file"><img src="img/file_icon.png" id="file-icon"> </a>
+        </div>
+            </div> 
+                </div>
+     
+        
+     <p>Заява щодо частини щорічної основної відпустки</p>    
+  <div class="Blank_spoiler">
+  <div>
+    <input type="checkbox" id="spoiler3" class="spoiler">
+     <label for="spoiler3" class="spoiler_label">Зразок</label>
+      <div class="spoiler_content">
+            <a href="#img3">
+                <img src="img/%D0%92%D1%96%D0%B4%D0%BF%D1%83%D1%81%D1%82%D0%BA%D0%B03.png" id="blank3">
+            </a>
+            <a href="#" class="lightbox" id="img3">
+                <span id="fullscreen" style="background-image: url(img/%D0%92%D1%96%D0%B4%D0%BF%D1%83%D1%81%D1%82%D0%BA%D0%B03.png)">
+                </span>
+            </a>
+        
+      <a href="path_to_file" download="proposed_file_name" id="word_file"><img src="img/file_icon.png" id="file-icon"></a>
+        </div>
+            </div> 
+                </div>
+        
+      <p>Заява щодо щорічних основної та додаткової відпусток</p>    
+  <div class="Blank_spoiler">
+  <div>
+    <input type="checkbox" id="spoiler4" class="spoiler">
+     <label for="spoiler4" class="spoiler_label">Зразок</label>
+      <div class="spoiler_content">
+ 
+          <a href="#img4">
+                <img src="img/%D0%92%D1%96%D0%B4%D0%BF%D1%83%D1%81%D1%82%D0%BA%D0%B04.png" id="blank4" >
+                </a>
+                <a href="#" class="lightbox" id="img4">
+                <span id="fullscreen"style="background-image: url(img/%D0%92%D1%96%D0%B4%D0%BF%D1%83%D1%81%D1%82%D0%BA%D0%B04.png)">
+                </span>
+                </a>
+ 
+        
+                <a href="path_to_file" download="proposed_file_name" id="word_file"><img src="img/file_icon.png" id="file-icon"></a>
+    </div>
+        </div> 
+            </div>
+                </div>
+       
+             <div class="calculator">
+        <iframe class="ifrm" src="https://ips.ligazakon.net/calculator/vc" height="725" title="description"></iframe>
+                 <p class="additional">*Увага! На період воєнного стану тривалість <br> відпустки будь-якого виду розраховується у календарних днях з врахуванням вихідних та<br> святкових днів</p>
+             </div> 
+        </div>
+    </main>
+      <button class="scrollToTopBtn">
+          <img src="img/arrow_top.png" width="20">
+      </button>
+            
+          <script>
+        var scrollToTopBtn = document.querySelector(".scrollToTopBtn");
+              var rootElement = document.documentElement;
+
+              function handleScroll() {
+   
+                  var scrollTotal = rootElement.scrollHeight - rootElement.clientHeight;
+                  if (rootElement.scrollTop / scrollTotal > 0.1) {
+     
+                      scrollToTopBtn.classList.add("showBtn");
+                    } else {
+                        scrollToTopBtn.classList.remove("showBtn");
+                    }
+              }
+
+              function scrollToTop() {
+                     
+                rootElement.scrollTo({
+                    top: 0,
+                    behavior: "smooth"
+                });
+              }
+              scrollToTopBtn.addEventListener("click", scrollToTop);
+              document.addEventListener("scroll", handleScroll);
+            </script>
+            
+            
+    <footer>
+     <div class="contacts">
+        <h3>Контакти:</h3>
+        <ul>
+            <li><a href="tel:+380322973091">(032) 297-30-91</a></li>
+            <li><a href="tel:+380322973051">(032) 297-30-51</a></li>
+            <li><a href="tel:+380322973035">(032) 297-30-35</a></li>
+            </ul>
+            </div>
+        <div class="adress">
+        <h3>Адреса:</h3>
+        <p> м.Львів,<br> вул.Стрийська, 35</p>
+            </div>
+        <div class="mail">
+        <h3>Електронна пошта:</h3>
+        <a href="mailto:lv.personal@tax.gov.ua">lv.personal@tax.gov.ua</a> 
+            </div>
+        <form>
+        <div class="form_block">
+        <p>Підпишіться щоб отримувати останні новини</p>
+         <input type="text" id="TXT" name="TXT" placeholder="Email..." pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}">
+         <input id="Frm_btn" type="submit" value="Відправити">
+        </div>
+       </form>
+        
+        <div class="copyrights">
+        <p>©2022 made by Artur Ostapyshyn</p>
+        </div>
+        </footer>
+        </div>
+    <script>
+        window.onload = function(){ document.getElementById("loader").style.display = "none" }
+    </script>
+</body>
+</html>
